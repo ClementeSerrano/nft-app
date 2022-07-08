@@ -1,5 +1,5 @@
 const { BaseAsset } = require('lisk-sdk');
-const { getAllNFTTokens, setAllNFTTokens } = require('../nft');
+const { getAllNFTTokens, setAllNFTTokens } = require('../nftHelpers');
 
 // 1.extend base asset to implement your custom asset
 class TransferNFTAsset extends BaseAsset {

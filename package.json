@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:server": "kill -9 $(lsof -ti:5000) && node ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ClementeSerrano",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
     "lisk-sdk": "^5.2.2"
   }
 }
