@@ -33,6 +33,22 @@ Follow this steps to install & run the app:
 
 The app runs with [Nodemon](https://www.npmjs.com/package/nodemon), so it will restart on every file change.
 
+## Development
+
+You can interact with the app via its REST API. The app listen to 2 ports, each one with the following endpoints:
+
+### HTTP base API
+
+The HTTP plugin runs on `http://localhost:4000`, for which you have the following endpoints (no headers are required):
+
+| Method | URL                                      | Example                                                                                                       |
+| ------ | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `GET`  | `http://localhost:4000/api/node/info`    | -                                                                                                             |
+| `GET`  | `http://localhost:4000/api/accounts/:id` | `curl --location --request GET 'http://localhost:4000/api/accounts/657f610728eef97d55e50212871f0993bb7cc700'` |
+| `GET`  | `http://localhost:4000/api/transactions` | -                                                                                                             |
+
+### NFT API
+
 ## Authors
 
 - [Clemente Sutil](https://github.com/ClementeSerrano)
