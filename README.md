@@ -35,19 +35,25 @@ The app runs with [Nodemon](https://www.npmjs.com/package/nodemon), so it will r
 
 ## Development
 
-You can interact with the app via its REST API. The app listen to 2 ports, each one with the following endpoints:
+You can interact with the app via its REST API. The app listen to 2 ports, each one with the following endpoints:f
 
-### HTTP base API
+### HTTP base API for the blockchain nodes
 
-The HTTP plugin runs on `http://localhost:4000`, for which you have the following endpoints (no headers are required):
+The HTTP plugin runs on `http://localhost:4000`, for which you can see all the endpoints [here](https://lisk.com/documentation/api/lisk-node-http.html).
 
-| Method | URL                                      | Example                                                                                                       |
-| ------ | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `GET`  | `http://localhost:4000/api/node/info`    | -                                                                                                             |
-| `GET`  | `http://localhost:4000/api/accounts/:id` | `curl --location --request GET 'http://localhost:4000/api/accounts/657f610728eef97d55e50212871f0993bb7cc700'` |
-| `GET`  | `http://localhost:4000/api/transactions` | -                                                                                                             |
+An example of request for this API could be (run on your terminal):
+
+```bash
+curl --location --request GET 'http://localhost:4000/api/node/info'
+```
 
 ### NFT API
+
+| Method | URL                   | Example                                                                                                         |
+| ------ | --------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `GET`  | `/api/nft_tokens`     | `curl --location --request GET 'http://localhost:8080/api/nft_tokens'`                                          |
+| `GET`  | `/api/nft_tokens/:id` | `curl --location --request GET 'http://localhost:4000/api/nft_tokens/657f610728eef97d55e50212871f0993bb7cc700'` |
+| `GET`  | `/api/transactions`   | `curl --location --request GET 'http://localhost:4000/api/transactions'`                                        |
 
 ## Authors
 
