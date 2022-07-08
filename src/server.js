@@ -6,6 +6,7 @@ const {
   HTTPAPIPlugin,
   utils,
 } = require('lisk-sdk');
+require('dotenv').config();
 
 // 2.Import NFT module and Plugin
 const { NFTModule } = require('./modules/NFTModule');
@@ -22,6 +23,8 @@ genesisBlockDevnet.header.asset.accounts =
     })
   );
 
+console.log({ port: process.env.PORT });
+
 // 4.Update application config to include unique label
 // and communityIdentifier to mitigate transaction replay
 const appConfig = utils.objects.mergeDeep({}, configDevnet, {
@@ -29,6 +32,9 @@ const appConfig = utils.objects.mergeDeep({}, configDevnet, {
   genesisConfig: { communityIdentifier: 'NFT' }, //In order to have a unique networkIdentifier
   logger: {
     consoleLogLevel: 'info',
+  },
+  network: {
+    port: parseInt(process.env.PORT) || 8888,
   },
 });
 
@@ -39,9 +45,8 @@ const app = Application.defaultApplication(genesisBlockDevnet, appConfig);
 app.registerModule(NFTModule);
 app.registerPlugin(HTTPAPIPlugin);
 app.registerPlugin(NFTAPIPlugin);
-
 // 7.Run the application
 app
   .run()
-  .then(() => console.info('NFT Blockchain running....'))
+  .then(() => console.info('🚀 NFT Blockchain running....'))
   .catch(console.error);
