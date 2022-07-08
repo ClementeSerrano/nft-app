@@ -23,8 +23,6 @@ genesisBlockDevnet.header.asset.accounts =
     })
   );
 
-console.log({ port: process.env.PORT });
-
 // 4.Update application config to include unique label
 // and communityIdentifier to mitigate transaction replay
 const appConfig = utils.objects.mergeDeep({}, configDevnet, {
